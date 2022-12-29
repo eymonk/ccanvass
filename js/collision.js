@@ -8,7 +8,8 @@ canvas.height = window.innerHeight
 let mainColor = 'hsla(150, 100%, 50%, 0.3)'
 let collisionColor = 'hsla(0, 100%, 50%, 0.7)'
 let numberOfParticles = 20
-let radiusMagnitude = 60
+let radius = 20;
+const diameter = radius * 2;
 
 c.strokeStyle = '#fff';
 c.fillStyle = mainColor
@@ -110,40 +111,36 @@ let particlesArray = []
 let velocitiesArray = [ 0.3, 0.6, 0.9, 1.2, -0.3, -0.6, -0.9, -1.2]
 
 let generateParticles = (num) => {
-    for(let i = 0; i < num; i++){
-        let x = Math.floor((Math.random() * (canvas.width - 100)) + 50)
-        let y = Math.floor((Math.random() * (canvas.height - 100)) + 50)
+    for (let i = 0; i < num; i++) {
+        let x = Math.floor((Math.random() * (canvas.width - 100)) + 50);
+        let y = Math.floor((Math.random() * (canvas.height - 100)) + 50);
         let exists = false
-        let radius = radiusMagnitude
 
         particlesArray.forEach(particle => {
-            if(getDistance(x, y, particle.x, particle.y) < radius * 2){
-                exists = true
-            }
-        })
+            if (getDistance(x, y, particle.x, particle.y) < diameter) exists = true;
+        });
 
-        if(exists === true){
-            i--
-            continue
+        if (exists) {
+            i--;
+            continue;
         }
 
-
-        let xVelocity = velocitiesArray[Math.floor(Math.random() * 8)]
-        let yVelocity = velocitiesArray[Math.floor(Math.random() * 8)]
-
-        particlesArray.push(new Particle(x, y, xVelocity, yVelocity, radius, mainColor))
+        let xVelocity = velocitiesArray[Math.floor(Math.random() * 8)];
+        let yVelocity = velocitiesArray[Math.floor(Math.random() * 8)];
+        particlesArray.push(new Particle(x, y, xVelocity, yVelocity, radius, mainColor));
     }
 }
-
-generateParticles(numberOfParticles)
 
 let animate = () => {
-    requestAnimationFrame(animate)
+    requestAnimationFrame(animate);
     c.clearRect(0, 0, canvas.width, canvas.height)
     for(let i = 0; i < particlesArray.length; i++){
-      particlesArray[i].update(particlesArray)
+      particlesArray[i].update(particlesArray);
     }
 }
 
-animate()
-/************************ EVENT LISTENERS ************************/
+function initiateCollision() {
+    generateParticles(50);
+    animate();
+}
+export default initiateCollision;
