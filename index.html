@@ -4,15 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" lang="en" content="dynamic page">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="img/canvas-logo.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;700;900&display=swap" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
     <title>ccanvass</title>
     <script defer src="js/hello-again.js"></script>
 </head>
 <body>
-    <a class="link left" href="gravity.html">gravity</a>
-    <a class="link right" href="collision.html">collision</a>
+    <header class="header">
+        <div class="header__wrapper">
+            <h1 class="header__title">ccanvass</h1>
+            <p class="header__info">what browser can using &lt;canvas&gt; element</p>
+        </div>
+        <nav class="header__nav nav">
+            <li class="nav__item">
+                <button class="btn nav__btn nav__btn_gravity">gravity</button>
+            </li>
+            <li class="nav__item">
+                <button class="btn nav__btn nav__btn_collision">collision</button>
+            </li>
+            <li class="nav__item">
+                <button class="btn nav__btn nav__btn_bubbles">bubbles</button>
+            </li>
+        </nav>
+    </header>
     <div class="container flex-column-div">
       <div class="input-div">
         <label for="bubbles-number">How many?</label>

@@ -5,25 +5,27 @@
 	padding: 0;
 }
 
-*:focus{
-	outline: none;
+:root {
+	--black: #000;
+	--red: #DC0000;
+	--red-dark: #850000;
+	--beige: #FFDB89;
+	--beige-light: #FFF6C3;
+
+	--padding-small: 5px;
 }
 
 html{
 	font-size: 18px;
-    font-family: 'Lucida Sans';
+    font-family: 'Verdana', 'Arial', sans-serif;
 }
 
-body{
-	background-image: url(../img/background.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
+body {
+	background: var(--black);
 }
 
 .small-element{
 	font-size: 1.2rem;
-	font-weight: bold;
 	letter-spacing: 1.5px;
 	padding: 0.3em 1em;
 	border: 2px solid #f44;
@@ -54,33 +56,41 @@ body{
 	height: 100vh;
 }
 
-
-
-/******************** LINKS *******************/
-.link{
-    position: absolute;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0.25em 1em;
-    color: #f44;
-    text-decoration: none;
-    transition: .15s;
+.btn {
+	padding: 5px 15px;
+	border: none;
+	background-color: var(--beige);
+	color: var(--black);
+	text-decoration: none;
+	cursor: pointer;
+	font: inherit;
+}
+.btn:hover {
+	background-color: var(--beige-light);
 }
 
-.link:hover{
-    transform: scale(1.15);
+/******************** HEADER *******************/
+.header {
+	background: var(--red-dark);
+	color: var(--beige-light);
 }
-
-.left{
-    top: 1.5em;
-    left: 1em;
+.header__wrapper {
+	display: flex;
+	align-items: center;
+	background-color: var(--red);
 }
-
-.right{
-    top: 1.5em;
-    right: 1em;
+.header__title {
+	padding: var(--padding-small);
+	font-weight: normal;
 }
-
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	list-style: none;
+	gap: 1rem;
+	/*padding: var(--padding-small);*/
+}
 
 /******************** INPUT FIELD *******************/
 .input-div{
