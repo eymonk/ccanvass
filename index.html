@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" lang="en" content="dynamic page">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/canvas-logo.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;700;900&display=swap" rel="stylesheet">
+    <title>ccanvass</title>
+    <script defer src="js/hello-again.js"></script>
+</head>
+<body>
+    <a class="link left" href="gravity.html">gravity</a>
+    <a class="link right" href="collision.html">collision</a>
+    <div class="container flex-column-div">
+      <div class="input-div">
+        <label for="bubbles-number">How many?</label>
+        <input id="bubbles-number" class="small-element" type="number" min="1" max="1500" value="88">
+      </div>
+      <div class="canvas-div">
+        <canvas id="canvas" width="700" height="530"></canvas>
+        <div class="canvas-buttons-div flex-column-div">
+          <button id="arrowUp" class="small-element" onclick="createBubbles(10)">&#x2B06;</button>
+          <button id="arrowDown" class="small-element" onclick="deleteBubbles(10)">&#x2B07;</button>
+        </div>
+      </div>
+      <div class="button-div">
+        <div>
+            <button class="small-element" id="start" onclick="start()">start</button>
+            <button class="small-element" id="stop" onclick='window.location.reload()'>&#8634;</button>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

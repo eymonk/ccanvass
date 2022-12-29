@@ -1,0 +1,54 @@
+/***************************** PRESETS *****************************/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+html{
+  font-size: 18px;
+  font-family: 'Lucida Sans';
+    background-color: #444;
+}
+
+#canvas{
+    background-color: #000;
+}
+
+
+/***************************** BALLS NUMBER *****************************/
+#balls-number{
+    font-size: 3rem;
+    color: #fff;
+    position: absolute;
+    top: 1em;
+    margin-left: 45%;
+    transform: translateX(50%);
+}
+
+
+/***************************** LINKS *****************************/
+.link{
+    position: absolute;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.25em 1em;
+    color: #f44;
+    text-decoration: none;
+    transition: .15s;
+}
+
+.link:hover{
+    transform: scale(1.15);
+}
+
+.left{
+    top: 1.5em;
+    left: 1em;
+}
+
+.right{
+    top: 1.5em;
+    right: 1em;
+}
