@@ -1,6 +1,6 @@
-/************************ CANVAS PRESETS ************************/
-let canvas = document.getElementById('canvas')
-let c = canvas.getContext('2d')
+import state from "../script.js";
+const canvas = document.getElementById('canvas')
+const c = canvas.getContext('2d')
 
 
 /************************ DOM ELEMENTS ************************/
@@ -59,11 +59,11 @@ let Ball = function(x, y, dx, dy, radius, gravity, color){
 
 /************************ SOURCES ************************/
 let anima, radiusAndGravivty;
-let ballsArr = [];
-let colorsArr = ['#FB7963', '#D24B47', '#A92C49', '#5B2055', '#2F163B'];
-let radiusesArr = [15, 20, 25, 30];
-let gravitiesArr = [0.96, 0.94, 0.91, 0.88];
-let velocitiesArr = [1, 2, 3, 4, -1, -2, -3, -4];
+const ballsArr = [];
+const colorsArr = ['#FB7963', '#D24B47', '#A92C49', '#5B2055', '#2F163B'];
+const radiusesArr = [15, 20, 25, 30];
+const gravitiesArr = [0.96, 0.94, 0.91, 0.88];
+const velocitiesArr = [1, 2, 3, 4, -1, -2, -3, -4];
 
 
 let generateBalls = (num) => {
@@ -74,7 +74,7 @@ let generateBalls = (num) => {
 }
 
 function drawGravity() {
-    anima = requestAnimationFrame(drawGravity);
+    state.animation = requestAnimationFrame(drawGravity);
     c.clearRect(0, 0, canvas.width, canvas.height);
     ballsArr.forEach(current => current.update());
 }
@@ -97,10 +97,13 @@ document.addEventListener('keydown', event => {
     }
 });
 
-
+function reset(){
+    ballsArr.length = 0;
+}
 
 function initiateGravity() {
-    generateBalls(50);
+    reset();
+    generateBalls(state.number);
     drawGravity();
 }
 export default initiateGravity;

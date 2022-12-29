@@ -1,18 +1,19 @@
+import state from "../script.js";
 /************************ CANVAS PRESETS ************************/
-let canvas = document.getElementById('canvas')
-let c = canvas.getContext('2d')
+let canvas = document.getElementById('canvas');
+let c = canvas.getContext('2d');
 
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
-let mainColor = 'hsla(150, 100%, 50%, 0.3)'
-let collisionColor = 'hsla(0, 100%, 50%, 0.7)'
-let numberOfParticles = 20
+let mainColor = 'hsla(150, 100%, 50%, 0.3)';
+let collisionColor = 'hsla(0, 100%, 50%, 0.7)';
+let numberOfParticles = 20;
 let radius = 20;
 const diameter = radius * 2;
 
 c.strokeStyle = '#fff';
-c.fillStyle = mainColor
+c.fillStyle = mainColor;
 
 
 
@@ -107,8 +108,8 @@ let getDistance = (x1, y1, x2, y2) => {
 }
 
 
-let particlesArray = []
-let velocitiesArray = [ 0.3, 0.6, 0.9, 1.2, -0.3, -0.6, -0.9, -1.2]
+const particlesArray = [];
+const velocitiesArray = [ 0.3, 0.6, 0.9, 1.2, -0.3, -0.6, -0.9, -1.2];
 
 let generateParticles = (num) => {
     for (let i = 0; i < num; i++) {
@@ -131,16 +132,22 @@ let generateParticles = (num) => {
     }
 }
 
-let animate = () => {
-    requestAnimationFrame(animate);
+function animate() {
+    state.animation = requestAnimationFrame(animate);
     c.clearRect(0, 0, canvas.width, canvas.height)
     for(let i = 0; i < particlesArray.length; i++){
       particlesArray[i].update(particlesArray);
     }
 }
 
+
+function reset() {
+    particlesArray.length = 0;
+}
+
 function initiateCollision() {
-    generateParticles(50);
+    reset();
+    generateParticles(state.number);
     animate();
 }
 export default initiateCollision;

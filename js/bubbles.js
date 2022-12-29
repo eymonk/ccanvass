@@ -1,4 +1,4 @@
-
+import state from "../script.js";
 /***************************** PRESETS *****************************/
 let gameProcess = false
 let mouse = {
@@ -10,11 +10,11 @@ let mouse = {
 
 /***************************** CANVAS *****************************/
 
-let canvas = document.getElementById('canvas')
-let c = canvas.getContext('2d')
-let canvasPosition = canvas.getBoundingClientRect()
-canvas.width = 700
-canvas.height = 530
+let canvas = document.getElementById('canvas');
+let c = canvas.getContext('2d');
+let canvasPosition = canvas.getBoundingClientRect();
+canvas.width = 700;
+canvas.height = 530;
 
 
 
@@ -77,11 +77,11 @@ let Bubble = function (x, y, dx, dy, r, color) {
 
 
 /***************************** ELEMENTS' PROPERTIES *****************************/
-let bubblesArr = []
-let velocitiesArr = [0.3, 0.6, 0.9, 1.2, -0.3, -0.6, -0.9, -1.2]
-let radiusesArr = [4, 6, 8, 12]
-let colors = ['#444','#f44', 'hsl(150, 100%, 40%)', '#fff']
-let inflateRadius = 70
+const bubblesArr = [];
+const velocitiesArr = [0.3, 0.6, 0.9, 1.2, -0.3, -0.6, -0.9, -1.2];
+const radiusesArr = [4, 6, 8, 12];
+const colors = ['#444','#f44', 'hsl(150, 100%, 40%)', '#fff'];
+const inflateRadius = 70;
 
 
 /***************************** BUBBLES CREATION *****************************/
@@ -114,28 +114,21 @@ let deleteBubbles = num => {
 
 
 /***************************** GAME START *****************************/
-let animation
-
-let animate = () => {
-    animation = requestAnimationFrame(animate)
+function animate() {
+    state.animation = requestAnimationFrame(animate)
     c.clearRect(0,0,canvas.width,canvas.height)
     bubblesArr.forEach(c => c.update())
     gameProcess = true
 }
 
+function reset() {
+    bubblesArr.length = 0;
+}
+
 function initiateBubbles() {
-    if(gameProcess === false){
-        bubblesArr = []
-        createBubbles(domTree.bubblesNumberInput.value)
-        cancelAnimationFrame(animation)
-        animate()
-    } else if(domTree.bubblesNumberInput.value != bubblesArr.length){
-        bubblesArr = []
-        createBubbles(domTree.bubblesNumberInput.value)
-        cancelAnimationFrame(animation)
-        animate()
-    }
-    domTree.startBtn.blur()
+    reset();
+    createBubbles(state.number);
+    animate();
 }
 
 
