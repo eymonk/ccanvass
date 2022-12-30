@@ -1,16 +1,11 @@
-import state from "../script.js";
-/***************************** PRESETS *****************************/
+import state from '../components/state.js';
+
 let gameProcess = false
 let mouse = {
     x: 0,
     y: 0,
 }
-
-
-
-/***************************** CANVAS *****************************/
-
-let canvas = document.getElementById('canvas');
+let canvas = document.querySelector('.canvas');
 let c = canvas.getContext('2d');
 let canvasPosition = canvas.getBoundingClientRect();
 canvas.width = 700;
@@ -31,11 +26,11 @@ let domTree = {
 
 /***************************** BUBBLES' CONSTRUCTOR *****************************/
 let Bubble = function (x, y, dx, dy, r, color) {
-    this.x = x
-    this.y = y
-    this.dy = dy
-    this.dx = dx
-    this.r = r
+    this.x = x;
+    this.y = y;
+    this.dy = dy;
+    this.dx = dx;
+    this.r = r;
     this.color = color
 
     let initialRadius = r
@@ -86,14 +81,8 @@ const inflateRadius = 70;
 
 /***************************** BUBBLES CREATION *****************************/
 let createBubbles = (num) => {
-    if(domTree.bubblesNumberInput.value < 1 || isNaN(domTree.bubblesNumberInput.value) === true || domTree.bubblesNumberInput.value > 1500){
-        alert('Please, input any bumber from 0 to 1500.')
-        domTree.bubblesNumberInput.value = 1500;
-    } else {
-        for(let i = 0; i < num; i++){
-            bubblesArr.push(new Bubble((Math.random() * (canvas.width - 90)) + 45, (Math.random() * (canvas.height - 90)) + 45, velocitiesArr[Math.floor(Math.random() * 8)],  velocitiesArr[Math.floor(Math.random() * 8)], radiusesArr[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)]))
-        }
-        domTree.bubblesNumberInput.value = bubblesArr.length
+    for(let i = 0; i < num; i++){
+        bubblesArr.push(new Bubble((Math.random() * (canvas.width - 90)) + 45, (Math.random() * (canvas.height - 90)) + 45, velocitiesArr[Math.floor(Math.random() * 8)],  velocitiesArr[Math.floor(Math.random() * 8)], radiusesArr[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)]))
     }
 }
 
@@ -109,7 +98,6 @@ let deleteBubbles = num => {
         domTree.bubblesNumberInput.value = bubblesArr.length
     }
 }
-////////////////// initial number
 
 
 
@@ -132,7 +120,6 @@ function initiateBubbles() {
 }
 
 
-
 /***************************** EVENT LISTENERS *****************************/
 ////////////////// cursor position
 document.addEventListener('mousemove', e => {
@@ -140,35 +127,6 @@ document.addEventListener('mousemove', e => {
     mouse.y = e.clientY
 })
 
-////////////////// start the game
-document.addEventListener('keypress', event => {
-    if(event.keyCode === 13){
-        start()
-        domTree.startBtn.focus()
-    }
-})
 
-////////////////// increase/decrease bubbles number
-document.addEventListener('keydown', event => {
-    if(event.keyCode === 38){
-        createBubbles(1)
-        domTree.arrowUpBtn.style.backgroundColor = '#111'
-        domTree.arrowUpBtn.style.border = '2px solid #f11'
-    } else if(event.keyCode === 40){
-        deleteBubbles(1)
-        domTree.arrowDownBtn.style.backgroundColor = '#111'
-        domTree.arrowDownBtn.style.border = '2px solid #f11'
-    }
-})
-
-document.addEventListener('keyup', event => {
-    if(event.keyCode === 38){
-        domTree.arrowUpBtn.style.backgroundColor = '#444'
-        domTree.arrowUpBtn.style.border = '2px solid #f44'
-    } else if(event.keyCode === 40){
-        domTree.arrowDownBtn.style.backgroundColor = '#444'
-        domTree.arrowDownBtn.style.border = '2px solid #f44'
-    }
-});
 
 export default initiateBubbles;

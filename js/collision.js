@@ -1,8 +1,7 @@
-import state from "../script.js";
-/************************ CANVAS PRESETS ************************/
-let canvas = document.getElementById('canvas');
-let c = canvas.getContext('2d');
+import state from '../components/state.js';
 
+let canvas = document.querySelector('.canvas');;
+let c = canvas.getContext('2d');
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 

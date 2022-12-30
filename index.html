@@ -26,24 +26,8 @@
             </li>
         </nav>
     </header>
-    <div class="container flex-column-div">
-      <div class="input-div">
-        <label for="bubbles-number">How many?</label>
-        <input id="bubbles-number" class="small-element" type="number" min="1" max="1500" value="88">
-      </div>
-      <div class="canvas-div">
-        <canvas id="canvas" width="700" height="530"></canvas>
-        <div class="canvas-buttons-div flex-column-div">
-          <button id="arrowUp" class="small-element" onclick="createBubbles(10)">&#x2B06;</button>
-          <button id="arrowDown" class="small-element" onclick="deleteBubbles(10)">&#x2B07;</button>
-        </div>
-      </div>
-      <div class="button-div">
-        <div>
-            <button class="small-element" id="start" onclick="start()">start</button>
-            <button class="small-element" id="stop" onclick='window.location.reload()'>&#8634;</button>
-        </div>
-      </div>
-    </div>
+    <main>
+        <canvas class="canvas"></canvas>
+    </main>
 </body>
 </html>

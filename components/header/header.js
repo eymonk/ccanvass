@@ -1,7 +1,7 @@
+import state from "../state.js";
 import initiateGravity from "../../js/gravity.js";
 import initiateCollision from "../../js/collision.js";
 import initiateBubbles from "../../js/bubbles.js";
-import state from "../../script.js";
 
 function getElement(className) {
     return document.querySelector(`.${className}`);
@@ -10,7 +10,6 @@ function getElement(className) {
 
 function openScreen(screenName) {
     cancelAnimationFrame(state.animation);
-
     switch (screenName) {
         case 'gravity':
             initiateGravity();

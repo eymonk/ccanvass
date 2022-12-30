@@ -23,30 +23,6 @@ body {
 	background: var(--black);
 }
 
-.small-element{
-	font-size: 1.2rem;
-	letter-spacing: 1.5px;
-	padding: 0.3em 1em;
-	border: 2px solid #f44;
-	border-radius: 12px;
-	background-color: #444;
-	color: #fff;
-	transition: 0.2s;
-}
-
-.small-element:hover{
-	background-color: #111;
-	border: 2px solid #f11;
-}
-
-.flex-column-div{
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
 .container{
 	margin: 0 auto;
 	width: 90%;
@@ -91,59 +67,10 @@ body {
 	/*padding: var(--padding-small);*/
 }
 
-/******************** INPUT FIELD *******************/
-.input-div{
-	margin-bottom: 1em;
-}
 
-.input-div label{
-	margin: 0 .5em;
-	font-size: 1.2rem;
-	font-weight: bold;
-	color: #fff;
-}
-
-
-
-/******************** CANVAS FIELD *******************/
-#canvas{
+/******************** CANVAS *******************/
+.canvas{
 	background-color: #0D0D0D;
 	border: 5px solid #000;
 	border-radius: 5px;
-}
-
-.canvas-div{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-}
-
-.canvas-buttons-div{
-	margin-left: 2em;
-}
-
-.canvas-buttons-div button{
-	margin: 0.5em 0;
-}
-
-
-
-
-
-/******************** START/RESTART FIELD *******************/
-
-.button-div{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-button{
-	font-family: 'Courier';
-	margin: 0 0.5em;
-}
-
-#start{
-	margin: 1.5rem 0;
 }

@@ -1,5 +1,6 @@
-import state from "../script.js";
-const canvas = document.getElementById('canvas')
+import state from '../components/state.js';
+
+const canvas = document.querySelector('.canvas');;
 const c = canvas.getContext('2d')
 
 
