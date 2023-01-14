@@ -1,6 +1,5 @@
 import state from '../components/state.js';
 
-let gameProcess = false;
 const canvas = document.querySelector('.canvas');
 const c = canvas.getContext('2d');
 const canvasPosition = canvas.getBoundingClientRect();
@@ -70,10 +69,9 @@ const createBubbles = (num) => {
 
 /***************************** GAME START *****************************/
 function animate() {
-    state.animation = requestAnimationFrame(animate);
     c.clearRect(0,0,canvas.width,canvas.height);
     bubblesArr.forEach(c => c.update());
-    gameProcess = true;
+    state.animation = requestAnimationFrame(animate);
 }
 
 function reset() {
@@ -83,7 +81,8 @@ function reset() {
 function initiateBubbles() {
     reset();
     createBubbles(state.number);
-    animate();
+    state.animation = requestAnimationFrame(animate);
+    state.resetCurrentScreen = initiateBubbles;
 }
 
 

@@ -109,9 +109,9 @@ let generateParticles = (num) => {
 }
 
 function animate() {
-    state.animation = requestAnimationFrame(animate);
     c.clearRect(0, 0, canvas.width, canvas.height)
     for (let i = 0; i < particlesArray.length; i++) particlesArray[i].update(particlesArray);
+    state.animation = requestAnimationFrame(animate);
 }
 
 
@@ -122,6 +122,7 @@ function reset() {
 function initiateCollision() {
     reset();
     generateParticles(state.number);
-    animate();
+    state.animation = requestAnimationFrame(animate);
+    state.resetCurrentScreen = initiateCollision;
 }
 export default initiateCollision;

@@ -57,10 +57,11 @@ const generateBalls = (num) => {
     }
 }
 
-function drawGravity() {
-    state.animation = requestAnimationFrame(drawGravity);
+function animate() {
     c.clearRect(0, 0, canvas.width, canvas.height);
     ballsArr.forEach(current => current.update());
+    state.animation = requestAnimationFrame(animate);
+    state.resetCurrentScreen = initiateGravity;
 }
 
 function reset(){
@@ -70,7 +71,7 @@ function reset(){
 function initiateGravity() {
     reset();
     generateBalls(state.number);
-    drawGravity();
+    state.animation = requestAnimationFrame(animate);
 }
 export default initiateGravity;
 
