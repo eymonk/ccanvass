@@ -64,13 +64,17 @@ body {
 	justify-content: center;
 	list-style: none;
 	gap: 1rem;
-	/*padding: var(--padding-small);*/
 }
 
 
 /******************** CANVAS *******************/
+.main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
 .canvas{
 	background-color: #0D0D0D;
-	border: 5px solid #000;
-	border-radius: 5px;
 }
