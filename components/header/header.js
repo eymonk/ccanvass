@@ -3,7 +3,6 @@ import initiateGravity from "../../js/gravity.js";
 import initiateCollision from "../../js/collision.js";
 import initiateBubbles from "../../js/bubbles.js";
 
-
 const canvas = document.querySelector('.canvas');
 const header = document.querySelector('.header');
 canvas.width = window.innerWidth;

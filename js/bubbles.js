@@ -1,13 +1,13 @@
 import state from '../components/state.js';
 
 let gameProcess = false;
+const canvas = document.querySelector('.canvas');
+const c = canvas.getContext('2d');
+const canvasPosition = canvas.getBoundingClientRect();
 const mouse = {
     x: 0,
     y: 0,
 }
-const canvas = document.querySelector('.canvas');
-const c = canvas.getContext('2d');
-const canvasPosition = canvas.getBoundingClientRect();
 
 
 
@@ -30,7 +30,10 @@ const Bubble = function (x, y, dx, dy, r, color) {
     }
 
     this.inflate = () => {
-        if((mouse.x - canvasPosition.left) - x < inflateRadius && (mouse.x - canvasPosition.left) - x > -inflateRadius && (mouse.y - canvasPosition.top) - y < inflateRadius && (mouse.y - canvasPosition.top) - y > -inflateRadius){
+        const inflateRadius = 50;
+        const shift = inflateRadius / 2;
+        if((mouse.x < x + initialRadius + inflateRadius && mouse.x > x - inflateRadius)
+            && (mouse.y - inflateRadius < y + initialRadius + inflateRadius && mouse.y > y)) {
             if (r < 50) r += 1.5;
         } else if (r > initialRadius) r--;
     }

@@ -1,6 +1,6 @@
 const state = {
     animation: null,
-    number: 50,
+    number: 113,
 }
 
 export default state;
