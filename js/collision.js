@@ -4,7 +4,7 @@ const canvas = document.querySelector('.canvas');
 const c = canvas.getContext('2d');
 const mainColor = 'hsla(150, 100%, 50%, 0.3)';
 const collisionColor = 'hsla(0, 100%, 50%, 0.7)';
-const radius = 20;
+const radius = 15;
 const diameter = radius * 2;
 
 c.strokeStyle = '#fff';

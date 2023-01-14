@@ -69,6 +69,7 @@ body {
 
 /******************** CANVAS *******************/
 .main {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -77,4 +78,23 @@ body {
 
 .canvas{
 	background-color: #0D0D0D;
+}
+
+.main__items-number-wrapper {
+	position: absolute;
+	left: 0px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+
+	padding: 1rem;
+	background: var(--red-dark);
+}
+.main__items-number {
+	width: 80px;
+	padding: 5px;
+	font: inherit;
 }

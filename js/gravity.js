@@ -45,7 +45,7 @@ const Ball = function(x, y, dx, dy, radius, gravity, color){
 let radiusAndGravivty;
 const ballsArr = [];
 const colorsArr = ['#FB7963', '#D24B47', '#A92C49', '#5B2055', '#2F163B'];
-const radiusesArr = [15, 20, 25, 30];
+const radiusesArr = [10, 20, 33, 57];
 const gravitiesArr = [0.96, 0.94, 0.91, 0.88];
 const velocitiesArr = [1, 2, 3, 4, -1, -2, -3, -4];
 
