@@ -2,8 +2,8 @@ import state from '../components/state.js';
 
 const canvas = document.querySelector('.canvas');
 const c = canvas.getContext('2d');
-const mainColor = 'hsla(150, 100%, 50%, 0.3)';
-const collisionColor = 'hsla(0, 100%, 50%, 0.7)';
+const mainColor = state.colors[2];
+const collisionColor = state.colors[0];
 const radius = 15;
 const diameter = radius * 2;
 

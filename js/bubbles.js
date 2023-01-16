@@ -55,14 +55,13 @@ const Bubble = function (x, y, dx, dy, r, color) {
 const bubblesArr = [];
 const velocitiesArr = [0.3, 0.6, 0.9, 1.2, -0.3, -0.6, -0.9, -1.2];
 const radiusesArr = [6, 10, 14, 18];
-const colors = ['#444','#f44', 'hsl(150, 100%, 40%)', '#fff'];
 const inflateRadius = 70;
 
 
 /***************************** BUBBLES CREATION *****************************/
 const createBubbles = (num) => {
     for (let i = 0; i < num; i++) {
-        bubblesArr.push(new Bubble((Math.random() * (canvas.width - 90)) + 45, (Math.random() * (canvas.height - 90)) + 45, velocitiesArr[Math.floor(Math.random() * 8)],  velocitiesArr[Math.floor(Math.random() * 8)], radiusesArr[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)]))
+        bubblesArr.push(new Bubble((Math.random() * (canvas.width - 90)) + 45, (Math.random() * (canvas.height - 90)) + 45, velocitiesArr[Math.floor(Math.random() * 8)],  velocitiesArr[Math.floor(Math.random() * 8)], radiusesArr[Math.floor(Math.random() * 4)], state.colors[Math.floor(Math.random() * state.colors.length)]))
     }
 }
 
