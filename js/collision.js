@@ -38,7 +38,7 @@ const Particle = function(x, y, dx, dy, radius, color){
         //bounce of each other
         for (let i = 0; i < particles.length; i++) {
             if(this === particles[i]) continue;
-            if(getDistance(this.x, this.y, particles[i].x, particles[i].y) < radius * 2) {
+            if(getDistance(this.x, this.y, particles[i].x, particles[i].y) < diameter) {
                 this.color = collisionColor;
                 particles[i].color = collisionColor;
 
@@ -83,27 +83,42 @@ const getDistance = (x1, y1, x2, y2) => {
     return Math.sqrt(Math.pow(xDist ,2) + Math.pow(yDist ,2));
 }
 
-
 const particlesArray = [];
 const velocitiesArray = [ 0.3, 0.6, 0.9, 1.2, -0.3, -0.6, -0.9, -1.2];
 
-let generateParticles = (num) => {
+function getNewParticlePosition(x, y, d) {
+    const particlesGap = 1;
+    let newX = x + (d + particlesGap);
+    let newY = y;
+
+    if (newX >= canvas.width - d) {
+        newX = 0 + d;
+        newY = y + (d + particlesGap);
+    } else if (newY >= canvas.height - d) return false;
+
+    return {
+        x: newX,
+        y: newY
+    }
+}
+const generateParticles = (num) => {
+    const firstParticle = new Particle(diameter, diameter, 0.6,  0.9, 15, state.colors[2]);
+    particlesArray.push(firstParticle);
+
     for (let i = 0; i < num; i++) {
-        const x = Math.floor((Math.random() * (canvas.width - 100)) + 50);
-        const y = Math.floor((Math.random() * (canvas.height - 100)) + 50);
-        let exists = false;
-
-        particlesArray.forEach(particle => {
-            if (getDistance(x, y, particle.x, particle.y) < diameter) exists = true;
-        });
-
-        if (exists) {
-            i--;
-            continue;
+        const newParticlePosition = getNewParticlePosition(particlesArray[i].x, particlesArray[i].y, diameter);
+        if (!newParticlePosition) {
+            state.number = i;
+            document.querySelector('.main__items-number').value = i;
+            alert(`You've generated too many particles. (The limit exists only in "collision").`);
+            break;
         }
 
+        const x = newParticlePosition.x;
+        const y = newParticlePosition.y;
         const xVelocity = velocitiesArray[Math.floor(Math.random() * 8)];
         const yVelocity = velocitiesArray[Math.floor(Math.random() * 8)];
+
         particlesArray.push(new Particle(x, y, xVelocity, yVelocity, radius, mainColor));
     }
 }
