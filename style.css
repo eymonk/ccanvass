@@ -56,6 +56,7 @@ a {
 }
 .header__wrapper {
 	display: flex;
+	gap: 7px;
 	align-items: center;
 	background-color: var(--red);
 }
@@ -65,6 +66,8 @@ a {
 }
 
 .header__contacts-wrapper {
+	display: flex;
+	gap: 10px;
 	margin-left: auto;
 	padding: 0px 1rem;
 }
@@ -74,7 +77,6 @@ a {
 
 .header__contact-icon {
 	width: 2rem;
-	margin: 0px 5px;
 	transition: transform 200ms;
 }
 .nav {
@@ -145,4 +147,78 @@ a {
 
 .modal__message {
 	padding: 2rem;
+	text-align: justify;
+}
+
+
+/****** MEDIA ******/
+@media screen and (max-width: 560px) {
+	.header__wrapper {
+		flex-wrap: wrap;
+		row-gap: 0px;
+	}
+	.header__info {
+		order: 1;
+		width: 100%;
+		text-align: center;
+		padding-bottom: 10px;
+	}
+
+	.nav {
+		padding-top: 10px;
+	}
+
+	.main__items-number-wrapper {
+		top: 0px;
+		flex-direction: row;
+		width: 100%;
+		padding: 10px;
+
+		border: none;
+		background: var(--red-dark);
+	}
+	.main__items-number-btn {
+		width: fit-content;
+	}
+
+	.modal__message {
+		padding: 1rem;
+	}
+}
+
+@media screen and (max-width: 370px) {
+	.nav {
+		padding: 10px;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.nav__item {
+		width: 100%;
+	}
+
+	.nav__btn {
+		width: 100%;
+	}
+
+	.modal__message {
+		padding: 1rem 10px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.header__title {
+		width: 100%;
+		text-align: center;
+	}
+
+	.header__contacts-wrapper {
+		width: 100%;
+		justify-content: center;
+		order: 2;
+	}
+
+	modal__message {
+		padding: 1rem 0px;
+	}
 }
