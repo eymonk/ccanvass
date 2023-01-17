@@ -21,6 +21,10 @@
     text-align: justify;
 }
 
+.modal.open {
+    display: flex;
+}
+
 
 /****** MEDIA ******/
 @media screen and (max-width: 560px) {
@@ -36,7 +40,7 @@
 }
 
 @media screen and (max-width: 320px) {
-    modal__message {
-        padding: 1rem 0px;
+    .modal__message {
+        padding: 1rem 0;
     }
 }

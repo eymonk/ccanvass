@@ -1,6 +1,6 @@
 import './components/header/header.js';
 import state from './components/state.js';
-import initiateBubbles from './js/bubbles.js';
+import initiateBubbles from './components/bubbles/bubbles.js';
 
 
 const itemsNumberBtn = document.querySelector('.main__items-number-btn');

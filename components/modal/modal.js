@@ -4,12 +4,12 @@ const modalBtn = document.querySelector('.modal__btn');
 
 function showModal(message) {
     modalMessage.textContent = message;
-    modal.style.display = 'flex';
+    modal.classList.add('open');
 }
 
 function closeModal() {
     modalMessage.textContent = 'Nice to meet you!';
-    modal.style.display = 'none';
+    modal.classList.remove('open');
 }
 
 modalBtn.addEventListener('click', closeModal);

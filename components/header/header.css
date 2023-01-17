@@ -19,14 +19,15 @@
     margin-left: auto;
     padding: 0 1rem;
 }
-.header__contact-icon:hover {
-    transform: rotateZ(15deg);
-}
-
 .header__contact-icon {
     width: 2rem;
     transition: transform 200ms;
 }
+.header__contact-icon:hover {
+    transform: rotateZ(15deg);
+}
+
+
 .nav {
     display: flex;
     align-items: center;
@@ -59,11 +60,6 @@
         flex-direction: column;
         gap: 10px;
     }
-
-    .nav__item {
-        width: 100%;
-    }
-
     .nav__btn {
         width: 100%;
     }
@@ -74,7 +70,6 @@
         width: 100%;
         text-align: center;
     }
-
     .header__contacts-wrapper {
         width: 100%;
         justify-content: center;

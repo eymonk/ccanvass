@@ -1,7 +1,7 @@
 import state from "../state.js";
-import initiateGravity from "../../js/gravity.js";
-import initiateCollision from "../../js/collision.js";
-import initiateBubbles from "../../js/bubbles.js";
+import initiateGravity from "../gravity/gravity.js";
+import initiateCollision from "../collision/collision.js";
+import initiateBubbles from "../bubbles/bubbles.js";
 
 const canvas = document.querySelector('.canvas');
 const header = document.querySelector('.header');

@@ -1,4 +1,4 @@
-import state from '../components/state.js';
+import state from '../state.js';
 const canvas = document.querySelector('.canvas');
 const c = canvas.getContext('2d');
 
@@ -9,8 +9,6 @@ const Ball = function(x, y, dx, dy, radius, gravity, color){
     this.dx = dx;
     this.dy = dy;
     this.color = color;
-    
-    this.up = () => { y -= 50; };
     
     this.draw = () => {
         c.beginPath();

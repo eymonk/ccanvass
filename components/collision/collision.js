@@ -1,5 +1,5 @@
-import state from '../components/state.js';
-import { showModal } from '../components/modal/modal.js';
+import state from '../state.js';
+import { showModal } from '../modal/modal.js';
 
 const canvas = document.querySelector('.canvas');
 const c = canvas.getContext('2d');

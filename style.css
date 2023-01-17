@@ -1,4 +1,5 @@
 @import './components/header/header.css';
+@import './components/modal/modal.css';
 
 /****** GENERAL *******/
 *{
@@ -67,7 +68,7 @@ a {
 
 .main__items-number-wrapper {
 	position: absolute;
-	left: 0px;
+	left: 0;
 
 	display: flex;
 	flex-direction: column;
@@ -92,7 +93,7 @@ a {
 /****** MEDIA ******/
 @media screen and (max-width: 560px) {
 	.main__items-number-wrapper {
-		top: 0px;
+		top: 0;
 		flex-direction: row;
 		width: 100%;
 		padding: 10px;
