@@ -91,10 +91,15 @@ body {
 	gap: 1rem;
 
 	padding: 1rem;
-	background: var(--red-dark);
+	background: var(--red);
+	border: 8px solid var(--red-dark);
+	border-left: none;
 }
 .main__items-number {
 	width: 80px;
 	padding: 5px;
 	font: inherit;
+}
+.main__items-number-btn {
+	width: 100%;
 }
