@@ -7,12 +7,19 @@ const mainColor = state.colors[2];
 const collisionColor = state.colors[0];
 const radius = 15;
 const diameter = radius * 2;
-
 c.strokeStyle = '#fff';
 c.fillStyle = mainColor;
 
+const velocitiesArray = [ 0.3, 0.6, 0.9, 1.2, -0.3, -0.6, -0.9, -1.2];
+const particlesArray = [];
 
-/************************ CIRCLES' CONSTRUCTOR ************************/
+function getDistance(x1, y1, x2, y2) {
+    const xDist = x1 - x2;
+    const yDist = y1 - y2;
+    return Math.sqrt(Math.pow(xDist ,2) + Math.pow(yDist ,2));
+}
+
+
 const Particle = function(x, y, dx, dy, radius, color){
     this.x = x;
     this.y = y;
@@ -38,10 +45,10 @@ const Particle = function(x, y, dx, dy, radius, color){
 
         //bounce of each other
         for (let i = 0; i < particles.length; i++) {
-            if(this === particles[i]) continue;
-            if(getDistance(this.x, this.y, particles[i].x, particles[i].y) < diameter) {
-                this.color = collisionColor;
+            if (this === particles[i]) continue;
+            if (getDistance(this.x, this.y, particles[i].x, particles[i].y) < diameter) {
                 particles[i].color = collisionColor;
+                this.color = collisionColor;
 
                 //collision physics implementation according to "spicy yoghurt"
                 const vectorCollision = {
@@ -76,17 +83,6 @@ const Particle = function(x, y, dx, dy, radius, color){
 
 
 
-/************************ SOURCES ************************/
-const getDistance = (x1, y1, x2, y2) => {
-    const xDist = x1 - x2;
-    const yDist = y1 - y2;
-
-    return Math.sqrt(Math.pow(xDist ,2) + Math.pow(yDist ,2));
-}
-
-const particlesArray = [];
-const velocitiesArray = [ 0.3, 0.6, 0.9, 1.2, -0.3, -0.6, -0.9, -1.2];
-
 function getNewParticlePosition(x, y, d) {
     const particlesGap = 1;
     let newX = x + (d + particlesGap);
@@ -108,6 +104,7 @@ const generateParticles = (num) => {
 
     for (let i = 0; i < num; i++) {
         const newParticlePosition = getNewParticlePosition(particlesArray[i].x, particlesArray[i].y, diameter);
+
         if (!newParticlePosition) {
             state.number = i;
             document.querySelector('.main__items-number').value = i;
@@ -119,7 +116,6 @@ const generateParticles = (num) => {
         const y = newParticlePosition.y;
         const xVelocity = velocitiesArray[Math.floor(Math.random() * 8)];
         const yVelocity = velocitiesArray[Math.floor(Math.random() * 8)];
-
         particlesArray.push(new Particle(x, y, xVelocity, yVelocity, radius, mainColor));
     }
 }
