@@ -108,7 +108,7 @@ const generateParticles = (num) => {
         if (!newParticlePosition) {
             state.number = i;
             document.querySelector('.main__items-number').value = i;
-            showModal(`You've generated too many particles. Current size of the screen allows to generate only ${i} particle. (The limit exists only in "collision").`);
+            showModal(`You've generated too many particles. Current size of the screen allows to generate only ${i} particles. (The limit exists only in "collision").`);
             break;
         }
 
