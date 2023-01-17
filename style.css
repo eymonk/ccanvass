@@ -116,7 +116,7 @@ body {
 	width: 90%;
 	max-width: 576px;
 	padding: 1rem;
-	display: flex;
+	display: none;
 	flex-direction: column;
 	align-items: center;
 

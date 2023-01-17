@@ -1,4 +1,5 @@
 import state from '../components/state.js';
+import { showModal } from '../components/modal/modal.js';
 
 const canvas = document.querySelector('.canvas');
 const c = canvas.getContext('2d');
@@ -110,7 +111,7 @@ const generateParticles = (num) => {
         if (!newParticlePosition) {
             state.number = i;
             document.querySelector('.main__items-number').value = i;
-            alert(`You've generated too many particles. (The limit exists only in "collision").`);
+            showModal(`You've generated too many particles. Current size of the screen allows to generate only ${i} particle. (The limit exists only in "collision").`);
             break;
         }
 
