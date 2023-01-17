@@ -2,14 +2,16 @@ import state from '../state.js';
 
 const canvas = document.querySelector('.canvas');
 const c = canvas.getContext('2d');
+
+const velocitiesArr = [0.3, 0.6, 0.9, 1.2, -0.3, -0.6, -0.9, -1.2];
+const radiusesArr = [6, 10, 14, 18];
+const bubblesArr = [];
+
 const mouse = {
     x: 0,
     y: 0,
 }
 
-
-
-/***************************** BUBBLES' CONSTRUCTOR *****************************/
 const Bubble = function (x, y, dx, dy, r, color) {
     this.x = x;
     this.y = y;
@@ -17,7 +19,6 @@ const Bubble = function (x, y, dx, dy, r, color) {
     this.dx = dx;
     this.r = r;
     this.color = color
-
     let initialRadius = r;
 
     this.draw = () => {
@@ -30,7 +31,8 @@ const Bubble = function (x, y, dx, dy, r, color) {
     this.inflate = () => {
         const inflateRadius = 50;
         if((mouse.x < this.x + initialRadius + inflateRadius && mouse.x > this.x - inflateRadius)
-            && (mouse.y - inflateRadius < this.y + initialRadius + inflateRadius && mouse.y > this.y)) {
+            &&
+            (mouse.y - inflateRadius < this.y + initialRadius + inflateRadius && mouse.y > this.y)) {
             if (this.r < 50) this.r += 1.5;
         } else if (this.r > initialRadius) this.r--;
     }
@@ -47,23 +49,19 @@ const Bubble = function (x, y, dx, dy, r, color) {
     }
 }
 
-
-
-/***************************** ELEMENTS' PROPERTIES *****************************/
-const bubblesArr = [];
-const velocitiesArr = [0.3, 0.6, 0.9, 1.2, -0.3, -0.6, -0.9, -1.2];
-const radiusesArr = [6, 10, 14, 18];
-
-
-/***************************** BUBBLES CREATION *****************************/
 const createBubbles = (num) => {
     for (let i = 0; i < num; i++) {
-        bubblesArr.push(new Bubble((Math.random() * (canvas.width - 90)) + 45, (Math.random() * (canvas.height - 90)) + 45, velocitiesArr[Math.floor(Math.random() * 8)],  velocitiesArr[Math.floor(Math.random() * 8)], radiusesArr[Math.floor(Math.random() * 4)], state.colors[Math.floor(Math.random() * state.colors.length)]))
+        const horizontalRandom = (Math.random() * (canvas.width - 90)) + 45;
+        const verticalRandom = (Math.random() * (canvas.height - 90)) + 45;
+        const randomVelocityX = velocitiesArr[Math.floor(Math.random() * 8)];
+        const randomVelocityY = velocitiesArr[Math.floor(Math.random() * 8)];
+        const randomRadius = radiusesArr[Math.floor(Math.random() * 4)];
+        const randomColor = state.colors[Math.floor(Math.random() * state.colors.length)];
+
+        bubblesArr.push(new Bubble(horizontalRandom, verticalRandom, randomVelocityX, randomVelocityY, randomRadius, randomColor));
     }
 }
 
-
-/***************************** GAME START *****************************/
 function animate() {
     c.clearRect(0,0,canvas.width,canvas.height);
     bubblesArr.forEach(c => c.update());
@@ -82,12 +80,9 @@ function initiateBubbles() {
 }
 
 
-/***************************** EVENT LISTENERS *****************************/
-////////////////// cursor position
 document.addEventListener('mousemove', e => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
 })
-
 
 export default initiateBubbles;
